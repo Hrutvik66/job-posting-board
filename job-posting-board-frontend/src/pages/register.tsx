@@ -52,7 +52,7 @@ const Register = () => {
   const { toast } = useToast();
   const router = useNavigate();
   // auth context
-  const { company, isAuthenticated, login, logout, isLoading } = useAuth();
+  const { isAuthenticated, login, isLoading } = useAuth();
 
   // Check if user is already logged in
   useEffect(() => {

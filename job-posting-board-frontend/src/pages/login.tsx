@@ -19,7 +19,7 @@ export default function Login() {
   const router = useNavigate();
   const { toast } = useToast();
   // auth context
-  const { company, isAuthenticated, login, logout, isLoading } = useAuth();
+  const { isAuthenticated, login, isLoading } = useAuth();
 
   // Check if user is already logged in
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { Mountain } from "lucide-react";
 // shad-cn ui componenets
 import { Button } from "@/components/ui/button";
 // React router om

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 // lucid-icons
-import { Cookie, Home, Loader2, Plus, X } from "lucide-react";
+import { Home, Loader2, Plus, X } from "lucide-react";
 // react-router-dom
 import { Link } from "react-router-dom";
 // shadcn-ui
@@ -35,7 +35,7 @@ interface jobData {
   endDate: string;
 }
 
-export default function Dashboard({ userName = "John Doe" }) {
+export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<jobData>({
     jobTitle: "",
@@ -47,7 +47,7 @@ export default function Dashboard({ userName = "John Doe" }) {
   // loading
   const [loading, setLoading] = useState(false);
   // auth
-  const { company, isAuthenticated, login, logout } = useAuth();
+  const { company, isAuthenticated } = useAuth();
   const router = useNavigate();
 
   // check for isAuth exist other wisw redirect to login
@@ -118,22 +118,23 @@ export default function Dashboard({ userName = "John Doe" }) {
             },
           }
         );
+        if (response.status === 200) {
+          toast({
+            title: "Job created successfully",
+            variant: "default",
+          });
 
-        toast({
-          title: "Job created successfully",
-          variant: "default",
-        });
-
-        // reset form
-        setShowForm(false);
-        setFormData({
-          jobTitle: "",
-          jobDescription: "",
-          experienceLevel: "",
-          candidates: [],
-          endDate: "",
-        });
-        setLoading(false);
+          // reset form
+          setShowForm(false);
+          setFormData({
+            jobTitle: "",
+            jobDescription: "",
+            experienceLevel: "",
+            candidates: [],
+            endDate: "",
+          });
+          setLoading(false);
+        }
       }
     } catch (error) {
       toast({
