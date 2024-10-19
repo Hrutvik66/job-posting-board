@@ -22,13 +22,17 @@ export default function Navbar() {
         <Button variant="ghost" asChild>
           <Link to="/">Contact</Link>
         </Button>
-        {company && (
+        {company ? (
           <div className="flex space-x-3 justify-center items-center">
             <span className="text-sm font-medium">{company.name}</span>
             <Button variant="destructive" onClick={handleLogout}>
               Logout
             </Button>
           </div>
+        ) : (
+          <Button variant="ghost">
+            <Link to="/login">Login</Link>
+          </Button>
         )}
       </nav>
     </header>
