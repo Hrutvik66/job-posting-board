@@ -100,9 +100,9 @@ export default function Dashboard() {
       // job api
       const URL = import.meta.env.VITE_URL!;
       const token = Cookies.get("cuvette-session");
-      let response;
+
       if (company && token) {
-        response = await axios.post(
+        await axios.post(
           `${URL}api/job`,
           {
             title: formData.jobTitle,
@@ -118,23 +118,21 @@ export default function Dashboard() {
             },
           }
         );
-        if (response.status === 200) {
-          toast({
-            title: "Job created successfully",
-            variant: "default",
-          });
+        toast({
+          title: "Job created successfully",
+          variant: "default",
+        });
 
-          // reset form
-          setShowForm(false);
-          setFormData({
-            jobTitle: "",
-            jobDescription: "",
-            experienceLevel: "",
-            candidates: [],
-            endDate: "",
-          });
-          setLoading(false);
-        }
+        // reset form
+        setShowForm(false);
+        setFormData({
+          jobTitle: "",
+          jobDescription: "",
+          experienceLevel: "",
+          candidates: [],
+          endDate: "",
+        });
+        setLoading(false);
       }
     } catch (error) {
       toast({
