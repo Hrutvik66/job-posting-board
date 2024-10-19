@@ -32,7 +32,7 @@ export default function Login() {
     e.preventDefault();
     // send email
     const URL = import.meta.env.VITE_URL!;
-    const response = await axios.post(`${URL}/api/otp/generate`, { email });
+    const response = await axios.post(`${URL}api/otp/generate`, { email });
     if (response.status === 200) {
       toast({
         title: "OTP sent successfully.",
@@ -54,7 +54,7 @@ export default function Login() {
       e.preventDefault();
       // login api
       const URL = import.meta.env.VITE_URL!;
-      const response = await axios.post(`${URL}/api/company/login`, {
+      const response = await axios.post(`${URL}api/company/login`, {
         email,
         otp,
       });

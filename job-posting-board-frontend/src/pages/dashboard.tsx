@@ -103,7 +103,7 @@ export default function Dashboard() {
       let response;
       if (company && token) {
         response = await axios.post(
-          `${URL}/api/job`,
+          `${URL}api/job`,
           {
             title: formData.jobTitle,
             description: formData.jobDescription,

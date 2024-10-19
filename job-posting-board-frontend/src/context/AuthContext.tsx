@@ -45,7 +45,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         const token = Cookies.get("cuvette-session");
         const URL = import.meta.env.VITE_URL!;
         if (token) {
-          const response = await axios.get(`${URL}/api/company/`, {
+          const response = await axios.get(`${URL}api/company/`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

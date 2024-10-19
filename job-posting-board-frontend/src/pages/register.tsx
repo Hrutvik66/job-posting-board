@@ -72,7 +72,7 @@ const Register = () => {
         return;
       }
       // send otp to email api
-      const response = await axios.post(`${URL}/api/otp/send`, {
+      const response = await axios.post(`${URL}api/otp/send`, {
         email: formData.companyEmail,
         company_name: formData.companyName,
       });
@@ -118,7 +118,7 @@ const Register = () => {
       }
       setIsLoadingOtp((prev) => ({ ...prev, [type]: true }));
       // verification process
-      const response = await axios.post(`${URL}/api/otp/verify`, {
+      const response = await axios.post(`${URL}api/otp/verify`, {
         email: formData.companyEmail,
         otp: type === "email" ? formData.emailOtp : formData.mobileOtp,
       });
@@ -145,7 +145,7 @@ const Register = () => {
   const handleRegister = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${URL}/api/company/register`, {
+      const response = await axios.post(`${URL}api/company/register`, {
         name: formData.name,
         phone: formData.phone,
         company_name: formData.companyName,
